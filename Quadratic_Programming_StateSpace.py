@@ -3,7 +3,7 @@ from scipy.optimize import minimize
 from scipy.signal import lti, step
 from scipy.optimize import NonlinearConstraint
 
-\\Add your state-space model
+#Add your state-space model
 A = np.array([[-0.05, 1], [-0.01, -0.1]])
 B = np.array([[0.1], [0.01]])  
 C = np.array([[1, 0]])
@@ -45,6 +45,7 @@ def stability_constraint(params):
     eigenvalues = np.linalg.eigvals(A_cl)
     return np.real(eigenvalues)
 
+# These are for example.Add bounds and x0 according to your system. 
 bounds = [(0, 10), (0, 10), (0, 10)]
 nonlinear_constraint = NonlinearConstraint(stability_constraint, -np.inf, 0)
 result = minimize(cost_function, x0=[1.0, 0.1, 0.1], bounds=bounds, constraints=[nonlinear_constraint], method='SLSQP')
