@@ -2,11 +2,12 @@ import numpy as np
 from scipy.signal import lti, step
 
 
+
+// Add your linearised state-space model 
 A = np.array([[-0.05, 1], [-0.01, -0.1]])
 B = np.array([[0.1], [0.01]])  
 C = np.array([[1, 0]])
 D = np.array([[0]])
-
 
 system = (A, B, C, D)
 
